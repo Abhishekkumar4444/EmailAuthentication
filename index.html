@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="emailvalidation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <header>Email validation check in HTML,CSS & javascript</header>
+        <form action="#">
+            <div class="field">
+                <input type="text" onkeyup="check()" id="email" placeholder="Enter email Address" autocomplete="off">
+                <div class="icons ">
+                    <span class="icon1 fas fa-exclamation "></span>
+                    <span class="icon2 fas fa-check "></span>
+
+                </div>
+            </div>
+            <div class="error-text ">Enter the valid email</div>
+            <button>Sign-Up</button>
+        </form>
+    </div>
+    <script>
+        const email = document.querySelector("#email");
+        const icon1 = document.querySelector(".icon1");
+        const icon2 = document.querySelector(".icon2");
+        const errortext = document.querySelector(".error-text");
+        const btn = document.querySelector("button");
+        // let regex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        let regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+
+        function check() {
+            if (email.value.match(regex)) {
+                email.style.borderColor = "#27ae60"
+                icon1.style.display = "none";
+                icon2.style.display = "block";
+                errortext.style.display = "none";
+                btn.style.display = "block";
+
+            } else {
+                email.style.borderColor = "#e74c3c"
+                icon1.style.display = "block";
+                icon2.style.display = "none";
+                errortext.style.display = "block"
+                btn.style.display = "none";
+            }
+            if (email.value == "") {
+                email.style.borderColor = "lightgrey";
+                icon1.style.display = "none";
+                icon2.style.display = "none";
+                errortext.style.display = "none";
+                btn.style.display = "none";
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
